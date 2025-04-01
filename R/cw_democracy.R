@@ -1,6 +1,3 @@
-#' @importFrom tibble tibble
-NULL
-
 #' Democracy (Correlates of War System)
 #'
 #' These are estimates of democracy for Correlates of War state system members.
