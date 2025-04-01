@@ -1,0 +1,41 @@
+---
+output: github_document
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "80%",
+  fig.align = "center",
+  warning = FALSE
+)
+```
+
+# Overflow Data for {peacesciencer}
+
+```{r echo=FALSE, results="hide", message=FALSE}
+library("badger")
+```
+
+```{r, echo = FALSE, results='asis'}
+cat(
+	badge_cran_release("isard", "green"),
+	badge_cran_download("isard", "grand-total", "green"),
+	badge_cran_download("isard", "last-month", "green"),
+	badge_cran_download("isard", "last-week", "green")
+)
+```
+
+<!-- <img src="http://svmiller.com/images/simqi-hexlogo.png" alt="My simqi  hexlogo" align="right" width="200" style="padding: 0 15px; float: right;"/> -->
+
+`{isard}` contains some data for use in `{peacesciencer}`. CRAN has understandable, if strict, requirements about package size. Data, more than functions, push package sizes to their limits. `{isard}` will have some overflow data for use in `{peacesciencer}`. That package will still have some data sets, though it will be more about functions going forward.
+
+# Installation
+
+Ideally, this would be on CRAN. Until then, or if you want development versions of this package, you can also install it from Github as follows.
+
+```r
+devtools::install_github("svmiller/isard")
+```
