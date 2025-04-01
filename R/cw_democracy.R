@@ -22,7 +22,7 @@ NULL
 #' data are version 15, but also come by way of their R package.
 #'
 #' The "adjusted" versions of the UDS estimate means that 0 represents the average
-#' cutpoint for the dichotomous indicators.
+#' cut-point for the dichotomous indicators.
 #'
 #' @references
 #'
@@ -34,8 +34,9 @@ NULL
 #' Marquez, Xavier. 2016. "A Quick Method for Extending the Unified Democracy
 #' Scores" \doi{10.2139/ssrn.2753830}
 #'
-#' Marquez, Xavier. 2020. "democracyData: A package for accessing and manipulating existing
-#' measures of democracy." \url{http://github.com/xmarquez/democracyData}.
+#' Marquez, Xavier. 2020. "democracyData: A package for accessing and
+#' manipulating existing measures of democracy."
+#' \url{http://github.com/xmarquez/democracyData}.
 #'
 #' Pemstein, Daniel, Stephen Meserve, and James Melton. 2010. "Democratic
 #' Compromise: A Latent Variable Analysis of Ten Measures of Regime Type."
