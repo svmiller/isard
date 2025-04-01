@@ -7,7 +7,3 @@ template:
     base_font: {google: "Fira Sans"}
     heading_font: {google: "Fira Sans"}
     code_font: {google: "Fira Mono"}
-
-authors:
-  Steven V. Miller:
-    href: http://svmiller.com
