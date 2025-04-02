@@ -42,24 +42,18 @@
 #'
 #' @references
 #'
-#' Please cite Miller (2022) for \pkg{peacesciencer}. Beyond that, cite the
-#' following, contingent on which democracy estimate you are using.
-#'
-#' Additionally, please cite Fariss et al. (2022) for the underlying data.
-#' That citation follows.
-#'
-#' Fariss, Christopher, J., Therese Anders, Jonathan N. Markowitz, and Miriam
-#' Barnum. 2022. "New Estimates of Over 500 Years of Historic GDP and Population
-#' Data." *Journal of Conflict Resolution* 66(3): 553--91.
-#'
-#' You can also cite the underlying data being estimated/simulated by Fariss et
-#' al. (2022). For the Maddison Project Database:
+#' Please cite Miller (2022) for \pkg{peacesciencer}. Cite Fariss et al. (2022)
+#' for the simulations. You should also cite the Maddison Project Database
+#' (Bolet et al. 2018) and Penn World Table (Feenstra et al. 2015) if that is
+#' the underlying source of the data that Fariss et al. (2022) are estimating.
 #'
 #' Bolt, Jutta, Robert Inklaar, Herman de Jong, and Luiten Janvan Zanden. 2018.
 #' "Rebasing 'Maddison': New Income Comparisons and the Shape of Long-Run Economic
 #' Development." *Maddison Project Working paper 10*.
 #'
-#' For Penn World Table:
+#' Fariss, Christopher, J., Therese Anders, Jonathan N. Markowitz, and Miriam
+#' Barnum. 2022. "New Estimates of Over 500 Years of Historic GDP and Population
+#' Data." *Journal of Conflict Resolution* 66(3): 553--91.
 #'
 #' Feenstra, Robert C., Robert Inklaar, and Marcel P. Timmer. 2015. "The Next
 #' Generation of the Penn World Table." *American Economic Review* 105(10):
