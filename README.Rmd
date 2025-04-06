@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Overflow Data for {peacesciencer}
+# Overflow Data for Quantitative Peace Science Research
 
 ```{r echo=FALSE, results="hide", message=FALSE}
 library("badger")

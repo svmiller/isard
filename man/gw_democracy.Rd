@@ -39,7 +39,7 @@ Scores" \doi{10.2139/ssrn.2753830}
 
 Marquez, Xavier. 2020. "democracyData: A package for accessing and
 manipulating existing measures of democracy."
-\url{http://github.com/xmarquez/democracyData}.
+\url{https://github.com/xmarquez/democracyData}.
 
 Pemstein, Daniel, Stephen Meserve, and James Melton. 2010. "Democratic
 Compromise: A Latent Variable Analysis of Ten Measures of Regime Type."

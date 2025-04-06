@@ -1,6 +1,6 @@
 Package: isard
 Type: Package
-Title: Overflow Data for peacesciencer
+Title: Overflow Data for Quantitative Peace Science Research
 Version: 0.1.0
 Depends: R (>= 3.5.0)
 Authors@R: person("Steve", "Miller",
