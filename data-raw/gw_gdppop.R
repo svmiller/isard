@@ -57,4 +57,7 @@ Pop %>% # distinct(indicator)
 gw_gdppop %>% select(-statename) %>%
   filter(year <= 2019) -> gw_gdppop
 
+# gw_gdppop %>%
+#   mutate(across(mrgdppc:sd_pwtpop, ~log(.))) -> gw_gdppop
+
 save(gw_gdppop, file="data/gw_gdppop.rda")

@@ -58,7 +58,7 @@ cow_states %>%
   mutate(stdate = ymd(paste0(styear,"/",stmonth, "/", stday)),
          enddate = ymd(paste0(endyear,"/",endmonth,"/",endday))) %>%
   select(stateabb:statenme, stdate, enddate) %>%
-  rename(cow_statename = statenme) %>%
+  rename(cw_statename = statenme) %>%
   mutate(enddate = if_else(enddate == as_date("2016-12-31"), as_date("2024-12-31"), enddate)) %>%
   rowwise() %>%
   mutate(day = list(seq(stdate, enddate, by = '1 day'))) %>%
@@ -70,7 +70,7 @@ cow_states %>%
 gwdays %>% full_join(., cowdays) -> cow_gw_days
 
 cow_gw_days %>% mutate(year = year(day)) %>%
-  distinct(stateabb, year, gwcode, ccode, gw_statename, cow_statename) %>%
+  distinct(stateabb, year, gwcode, ccode, gw_statename, cw_statename) %>%
   group_by(ccode, year) %>%
   mutate(gwcode = ifelse(is.na(gwcode) & n() > 1, max(gwcode, na.rm=T), gwcode)) %>%
   slice(1) %>% ungroup() -> cw_gw_panel
