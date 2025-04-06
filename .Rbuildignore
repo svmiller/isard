@@ -5,3 +5,4 @@
 ^dross$
 ^_pkgdown\.yml$
 ^README\.Rmd$
+^cran-comments\.md$

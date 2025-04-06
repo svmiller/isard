@@ -69,7 +69,7 @@ Yi-ting Wang, Felix Wiebrecht, Tore Wig, Steven Wilson and Daniel Ziblatt.
 Maerz, Seraphine, Amanda Edgell, Sebastian Hellmeier, Nina Ilchenko, Linnea Fox.
 'Vdemdata - an R package to load, explore and work with the most recent V-Dem
 (Varieties of Democracy) and V-Party datasets'. Varieties of Democracy (V-Dem)
-Project. 2025. \url{https://www.v-dem.net/en/} and
+Project. 2025. \url{https://www.v-dem.net} and
 \url{https://github.com/vdeminstitute/vdemdata}
 }
 }
