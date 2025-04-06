@@ -1,10 +1,10 @@
-#' GDP, Population, and GDP per Capita (Gleditsch-Ward System)
+#' GDP, Population, and GDP per Capita (Correlates of War System)
 #'
-#' These are estimates of democracy for Gleditsch-Ward state system members.
+#' These are estimates of democracy for Correlates of War state system members.
 #'
 #' @format A data frame with the following 8 variables.
 #' \describe{
-#' \item{\code{gwcode}}{a numeric vector for the Gleditsch-Ward state code}
+#' \item{\code{ccode}}{a numeric vector for the Correlates of War state code}
 #' \item{\code{year}}{a numeric vector for the year}
 #' \item{\code{mrgdppc}}{a numeric vector for the estimated GDP per capita in a given year. See Details.}
 #' \item{\code{sd_mrgdppc}}{a numeric vector for the standard deviation of estimated GDP per capita in a given year.}
@@ -15,6 +15,21 @@
 #' }
 #'
 #' @details
+#'
+#' Fariss et al. (2022) use Gleditsch-Ward for their population of cases. The
+#' differences between Gleditsch-Ward and Correlates of War are obvious if often
+#' overstated. However, there will be cases where merging one system into the
+#' other amounts to a collision, the wreckage of which can't go unnoticed.
+#' The canonical cases here are post-WW2 Germany, post-unification Yemen, and all
+#' of Serbia/Yugoslavia. Those merit further scrutiny by the user.
+#'
+#' The underlying data, as they are, at at the mercy of the Gleditsch-Ward system
+#' for describing the universe of cases that could have a GDP, a population, or a
+#' GDP per capita. That means there are missing data for Serbia (1916, 1917),
+#' Morocco (1905-1912), Egypt (1856-1882), Saudi Arabia (1927-1931), and Laos
+#' (1953). I can think of a few imputation procedures under those circumstances,
+#' but that is something for which the user would have to take initiative to do
+#' themselves.
 #'
 #' Based on my reading of Fariss et al. (2022), I think the following information
 #' gathered from their simulations make sense for suggested defaults. You may
@@ -59,4 +74,4 @@
 #' Generation of the Penn World Table." *American Economic Review* 105(10):
 #' 3150--82.
 #'
-"gw_gdppop"
+"cw_gdppop"
