@@ -173,6 +173,6 @@ vdem %>%
 gw_democracy %>%
   select(gwcode, year, z1, z1_adj, polity2, v2x_polyarchy) %>%
   rename(euds = z1,
-         euds_adj = z1_adj) -> gw_democracy
+         aeuds = z1_adj) -> gw_democracy
 
 save(gw_democracy, file="data/gw_democracy.rda")

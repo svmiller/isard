@@ -10,7 +10,7 @@ A data frame with the following 6 variables.
 \item{\code{gwcode}}{a numeric vector for the Gleditsch-Ward state code}
 \item{\code{year}}{a numeric vector for the year}
 \item{\code{euds}}{a numeric vector for the extended Unified Democracy Scores (UDS) estimate in a given year}
-\item{\code{euds_adj}}{a numeric vector for the adjusted, extended UDS estimate in a given year}
+\item{\code{aeuds}}{a numeric vector for the adjusted, extended UDS estimate in a given year}
 \item{\code{polity2}}{a numeric vector for the \code{polity2} score in a given year}
 \item{\code{v2x_polyarchy}}{a numeric vector for the Varieties of Democracy "polyarchy" estimate in a given year}
 }

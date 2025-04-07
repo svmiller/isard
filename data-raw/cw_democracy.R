@@ -71,7 +71,7 @@ vdem %>%
 
 cw_democracy %>%
   rename(euds = z1,
-         euds_adj = z1_adj) %>%
+         aeuds = z1_adj) %>%
   select(-statenme) -> cw_democracy
 
 cw_democracy
