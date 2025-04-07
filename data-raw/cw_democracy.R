@@ -74,4 +74,7 @@ cw_democracy %>%
          euds_adj = z1_adj) %>%
   select(-statenme) -> cw_democracy
 
+cw_democracy
+# That was... suspiciously easier than I remember it being.
+
 save(cw_democracy, file="data/cw_democracy.rda")

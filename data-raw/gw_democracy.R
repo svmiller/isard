@@ -103,6 +103,9 @@ extended_uds %>%
   filter(n() > 1, .by = c(gwcode, year)) %>%
   arrange(gwcode, year) %>%
   data.frame %>%
+  # NOTE TO FUTURE STEVE: Xavier is working on an update of these and you will
+  # 100% want to inspect/change this when he does. It works for now, for what it
+  # is ultimately doing.
   mutate(omit = c(1, 1, 0, 1, 0, 1)) %>%
   left_join(extended_uds %>%   select(GWn, extended_country_name,
                                       in_GW_system, year, z1, z1_adj) %>%

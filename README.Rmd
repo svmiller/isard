@@ -21,10 +21,10 @@ library("badger")
 
 ```{r, echo = FALSE, results='asis'}
 cat(
-	badge_cran_release("isard", "green"),
-	badge_cran_download("isard", "grand-total", "green"),
-	badge_cran_download("isard", "last-month", "green"),
-	badge_cran_download("isard", "last-week", "green")
+	badge_cran_release("isard", "2fa4e7"),
+	badge_cran_download("isard", "grand-total", "2fa4e7"),
+	badge_cran_download("isard", "last-month", "2fa4e7"),
+	badge_cran_download("isard", "last-week", "2fa4e7")
 )
 ```
 

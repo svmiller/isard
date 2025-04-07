@@ -1,10 +1,10 @@
 
 # Overflow Data for Quantitative Peace Science Research
 
-[![](https://www.r-pkg.org/badges/version/isard?color=green)](https://cran.r-project.org/package=isard)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/isard?color=green)](https://cran.r-project.org/package=isard)
-[![](http://cranlogs.r-pkg.org/badges/last-month/isard?color=green)](https://cran.r-project.org/package=isard)
-[![](http://cranlogs.r-pkg.org/badges/last-week/isard?color=green)](https://cran.r-project.org/package=isard)
+[![](https://www.r-pkg.org/badges/version/isard?color=2fa4e7)](https://cran.r-project.org/package=isard)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/isard?color=2fa4e7)](https://cran.r-project.org/package=isard)
+[![](http://cranlogs.r-pkg.org/badges/last-month/isard?color=2fa4e7)](https://cran.r-project.org/package=isard)
+[![](http://cranlogs.r-pkg.org/badges/last-week/isard?color=2fa4e7)](https://cran.r-project.org/package=isard)
 
 <img src="http://svmiller.com/images/isard-hexlogo.png" alt="My isard hexlogo" align="right" width="200" style="padding: 0 15px; float: right;"/>
 
