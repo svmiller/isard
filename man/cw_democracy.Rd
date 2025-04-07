@@ -27,7 +27,15 @@ Extended Unified Democracy Scores (UDS) estimates come from Marquez'
 data are version 15, but also come by way of their R package.
 
 The "adjusted" versions of the UDS estimate means that 0 represents the average
-cut-point for the dichotomous indicators.
+cut-point for the dichotomous indicators. If it were my call to make, I think
+these "adjusted" estimates generally have greater face validity, certainly
+for obvious autocracies, even if one might object that they're somewhat less
+sanguine than they perhaps could or should be with obvious democracies. For
+the latest years in the sample, run a \code{pnorm()} on the values returned for
+illustrative cases like Afghanistan, Australia, China, North Korea, Sweden,
+and the United States to get an idea of the differences between these
+measures (as probabilistic assessments of whether the thing in question is a
+democracy).
 }
 \references{
 Please cite Miller (2022) for \pkg{peacesciencer}. Beyond that, cite the
