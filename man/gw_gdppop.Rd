@@ -45,8 +45,9 @@ You can create a rough estimate of GDP per capita from the Penn World Table
 simulations based on the information in this data set. It's free and the cops
 can't stop you.
 
-I also honor the authors' please to include the standard deviation of these
-estimates as well.
+I also honor the authors' suggestion to include the standard deviation of
+these estimates as well. Everyone likes a point estimate, but variation of
+uncertainty around the estimate is also important.
 }
 \references{
 Please cite Miller (2022) for \pkg{peacesciencer}. Cite Fariss et al. (2022)

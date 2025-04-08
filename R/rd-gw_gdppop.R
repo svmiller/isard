@@ -36,8 +36,9 @@
 #' simulations based on the information in this data set. It's free and the cops
 #' can't stop you.
 #'
-#' I also honor the authors' please to include the standard deviation of these
-#' estimates as well.
+#' I also honor the authors' suggestion to include the standard deviation of
+#' these estimates as well. Everyone likes a point estimate, but variation of
+#' uncertainty around the estimate is also important.
 #'
 #'
 #' @references
