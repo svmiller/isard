@@ -32,15 +32,15 @@ state_panel <- function(system = "cow") {
   ylist <- Map(seq,  as.numeric(format(the_system$start,'%Y')),
                    as.numeric(format(the_system$end,'%Y')))
 
-  repeated_rows <- rep(seq_len(nrow(the_system)), lengths(ylist))
+  rows <- rep(seq_len(nrow(the_system)), lengths(ylist))
 
 
 
   if(system == "cow") {
 
     data <- data.frame(
-      ccode = the_system$ccode[repeated_rows],
-      cw_name = the_system$cw_name[repeated_rows],
+      ccode = the_system$ccode[rows],
+      cw_name = the_system$cw_name[rows],
       year = unlist(ylist)
     )
 
@@ -49,9 +49,9 @@ state_panel <- function(system = "cow") {
 
 
     data <- data.frame(
-      gwcode = the_system$gwcode[repeated_rows],
-      gw_name = the_system$gw_name[repeated_rows],
-      year = unlist(year_list)
+      gwcode = the_system$gwcode[rows],
+      gw_name = the_system$gw_name[rows],
+      year = unlist(ylist)
     )
 
     data <- data[order(data$gwcode, data$year), ]
