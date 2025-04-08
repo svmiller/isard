@@ -7,9 +7,12 @@ Authors@R: person("Steve", "Miller",
                   email = "steve@svmiller.com", 
                   role = c("aut", "cre"),
                   comment = c(ORCID = "0000-0003-4072-6263"))
-Description: This is a collection of assorted data of interest to the quantitative
-    peace science community. It serves as kind of an overflow repository for the
-    core package of functions for doing quantitative peace science.
+Description: These are data and functions to support quantitative peace science
+    research. The data are important state-year information on democracy and
+    wealth, which require periodic updates and regular maintenance. The
+    functions permit some exploratory and diagnostic assessment of the kinds of
+    data in demand by the community, but do not impose many dependencies on the
+    user.
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
