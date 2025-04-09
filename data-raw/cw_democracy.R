@@ -1,5 +1,6 @@
 library(tidyverse)
-library(peacesciencer)
+#library(peacesciencer)
+library(isard)
 library(democracyData) # v. 0.5.1
 library(vdemdata)      # v. 15
 
@@ -7,7 +8,10 @@ packageVersion("vdemdata")
 packageVersion("democracyData")
 
 # For creating basic CoW state years
-create_stateyears() -> cw_democracy
+#create_stateyears() -> cw_democracy
+
+state_panel() %>%
+  as_tibble() -> cw_democracy
 
 cw_democracy
 
@@ -72,7 +76,7 @@ vdem %>%
 cw_democracy %>%
   rename(euds = z1,
          aeuds = z1_adj) %>%
-  select(-statenme) -> cw_democracy
+  select(-cw_name) -> cw_democracy
 
 cw_democracy
 # That was... suspiciously easier than I remember it being.

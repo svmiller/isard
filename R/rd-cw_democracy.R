@@ -72,4 +72,10 @@
 #' Project. 2025. \url{https://www.v-dem.net} and
 #' \url{https://github.com/vdeminstitute/vdemdata}
 #'
+#' @examples
+#'
+#' str(cw_democracy)
+#' head(cw_democracy)
+#'
+#'
 "cw_democracy"

@@ -1,11 +1,14 @@
 library(tidyverse)
-library(peacesciencer)
+# library(peacesciencer)
+library(isard)
 
 GDPPC <- readRDS("/home/steve/Dropbox/data/fariss-gdp/estimates_gdppc_model_combined_normal_noslope_gamma_lambda_additive_test_20240416.rds")
 GDP <- readRDS("/home/steve/Dropbox/data/fariss-gdp/estimates_gdp_model_combined_normal_noslope_gamma_lambda_additive_test_20240416.rds")
 Pop <- readRDS("/home/steve/Dropbox/data/fariss-gdp/estimates_pop_model_combined_normal_noslope_gamma_lambda_additive_test_20240416.rds")
 
-create_stateyears(system = 'gw') -> gw_gdppop
+#create_stateyears(system = 'gw') -> gw_gdppop
+state_panel(system = 'gw') %>%
+  as_tibble() -> gw_gdppop
 
 # From their paper...
 #
@@ -54,7 +57,7 @@ Pop %>% # distinct(indicator)
   rename(pwtpop = mean,
          sd_pwtpop = sd) -> gw_gdppop
 
-gw_gdppop %>% select(-statename) %>%
+gw_gdppop %>% select(-gw_name) %>%
   filter(year <= 2019) -> gw_gdppop
 
 # gw_gdppop %>%
