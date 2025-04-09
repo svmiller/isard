@@ -60,4 +60,9 @@
 #' Generation of the Penn World Table." *American Economic Review* 105(10):
 #' 3150--82.
 #'
+#' @examples
+#'
+#' str(gw_gdppop)
+#' head(gw_gdppop)
+#'
 "gw_gdppop"

@@ -34,4 +34,10 @@
 #' headaches concern German unification, Yemeni unification, and the overall
 #' history of Serbia/Yugoslavia.
 #'
+#' @examples
+#'
+#' str(cw_gw_panel)
+#' head(cw_gw_panel)
+#'
+#'
 "cw_gw_panel"

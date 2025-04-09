@@ -64,6 +64,12 @@ I also honor the authors' suggestion to include the standard deviation of
 these estimates as well. Everyone likes a point estimate, but variation of
 uncertainty around the estimate is also important.
 }
+\examples{
+
+str(cw_gdppop)
+head(cw_gdppop)
+
+}
 \references{
 Please cite Miller (2022) for \pkg{peacesciencer}. Cite Fariss et al. (2022)
 for the simulations. You should also cite the Maddison Project Database

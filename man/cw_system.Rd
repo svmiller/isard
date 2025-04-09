@@ -24,6 +24,12 @@ These are the independent states in the Correlates of War system.
 The end column is current as of Dec. 31, 2016. That date is reflected in the
 \code{end} column for states still active today.
 }
+\examples{
+
+str(cw_system)
+head(cw_system)
+
+}
 \references{
 Gleditsch, Kristian S. and Michael D. Ward. 1999. "A Revised List of
 Independent States since the Congress of Vienna."

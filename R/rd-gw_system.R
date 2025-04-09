@@ -23,4 +23,9 @@
 #' Independent States since the Congress of Vienna."
 #' *International Interactions* 25(4): 393–413.
 #'
+#' @examples
+#'
+#' str(gw_system)
+#' head(gw_system)
+#'
 "gw_system"

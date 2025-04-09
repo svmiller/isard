@@ -42,4 +42,10 @@ where possible, will be unproblematic in almost all cases. The biggest
 headaches concern German unification, Yemeni unification, and the overall
 history of Serbia/Yugoslavia.
 }
+\examples{
+
+str(gw_cw_panel)
+head(gw_cw_panel)
+
+}
 \keyword{datasets}

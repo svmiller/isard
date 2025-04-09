@@ -25,6 +25,12 @@ These are the independent states and microstates in the Gleditsch-Ward system.
 The end column is current as of Dec. 31, 2020. That date is reflected in the
 \code{end} column for states still active today.
 }
+\examples{
+
+str(gw_system)
+head(gw_system)
+
+}
 \references{
 Gleditsch, Kristian S. and Michael D. Ward. 1999. "A Revised List of
 Independent States since the Congress of Vienna."

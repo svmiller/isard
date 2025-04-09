@@ -37,6 +37,12 @@ and the United States to get an idea of the differences between these
 measures (as probabilistic assessments of whether the thing in question is a
 democracy).
 }
+\examples{
+
+str(gw_democracy)
+head(gw_democracy)
+
+}
 \references{
 Please cite Miller (2022) for \pkg{peacesciencer}. Beyond that, cite the
 following, contingent on which democracy estimate you are using.

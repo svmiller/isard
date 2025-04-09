@@ -120,6 +120,32 @@ Generation of the Penn World Table." <em>American Economic Review</em> 105(10):
 3150–82.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">cw_gdppop</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tibble [16,536 × 8] (S3: tbl_df/tbl/data.frame)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ ccode     : num [1:16536] 2 2 2 2 2 2 2 2 2 2 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ year      : num [1:16536] 1816 1817 1818 1819 1820 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ mrgdppc   : num [1:16536] 2668 2656 2644 2643 2657 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ sd_mrgdppc: num [1:16536] 411 421 419 422 415 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ pwtrgdp   : num [1:16536] 27951 28557 29150 29640 30452 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ sd_pwtrgdp: num [1:16536] 12015 12256 12349 12462 13244 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ pwtpop    : num [1:16536] 9.16 9.41 9.69 9.95 10.17 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ sd_pwtpop : num [1:16536] 0.69 0.702 0.711 0.714 0.711 ...</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">cw_gdppop</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ccode  year mrgdppc sd_mrgdppc pwtrgdp sd_pwtrgdp pwtpop sd_pwtpop</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>     2  <span style="text-decoration: underline;">1</span>816   <span style="text-decoration: underline;">2</span>668.       411.  <span style="text-decoration: underline;">27</span>951.     <span style="text-decoration: underline;">12</span>015.   9.16     0.690</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>     2  <span style="text-decoration: underline;">1</span>817   <span style="text-decoration: underline;">2</span>656.       421.  <span style="text-decoration: underline;">28</span>557.     <span style="text-decoration: underline;">12</span>256.   9.41     0.702</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>     2  <span style="text-decoration: underline;">1</span>818   <span style="text-decoration: underline;">2</span>644.       419.  <span style="text-decoration: underline;">29</span>150.     <span style="text-decoration: underline;">12</span>349.   9.69     0.711</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>     2  <span style="text-decoration: underline;">1</span>819   <span style="text-decoration: underline;">2</span>643.       422.  <span style="text-decoration: underline;">29</span>640.     <span style="text-decoration: underline;">12</span>462.   9.95     0.714</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>     2  <span style="text-decoration: underline;">1</span>820   <span style="text-decoration: underline;">2</span>657.       415.  <span style="text-decoration: underline;">30</span>452.     <span style="text-decoration: underline;">13</span>244.  10.2      0.711</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>     2  <span style="text-decoration: underline;">1</span>821   <span style="text-decoration: underline;">2</span>683.       420.  <span style="text-decoration: underline;">31</span>981.     <span style="text-decoration: underline;">13</span>850.  10.5      0.743</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 
