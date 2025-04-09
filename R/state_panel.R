@@ -4,6 +4,9 @@
 #' from one of two major state systems in international relations scholarship.
 #'
 #' @param system a state system (either "cow" or "gw")
+#' @param mry logical, defaults to TRUE. If TRUE, the panel created extends to
+#' the most recently concluded calendar year. If FALSE, the panel created ends
+#' at the year of last update. See details section for more.
 #'
 #' @return
 #'
@@ -14,6 +17,10 @@
 #'
 #' This function leans on `cw_system` and `gw_system` in this package.
 #'
+#' The Correlates of War system's last year is 2016. The Gleditsch-Ward system's
+#' last year is 2020. This information matters for the `mry` argument in the
+#' function.
+#'
 #' @examples
 #'
 #' head(state_panel(), 10)
@@ -21,16 +28,49 @@
 #'
 #' @export
 
-state_panel <- function(system = "cow") {
+state_panel <- function(system = "cow", mry = TRUE) {
+
+  if (!system %in% c("cow", "gw")) {
+    stop('`system` must be either Correlates of War ("cow") or Gleditsch-Ward ("gw").', call. = FALSE)
+  }
 
   if(system == "cow") {
     the_system <- cw_system
+
+        if(mry == TRUE) { # FYI, this works only under two conditions that are satisfied here:
+          # 1) no state "died" in 2016, and 2) the last year in question is 2016.
+
+          the_system$year <- format(the_system$end, "%Y")
+          the_system$day <- format(the_system$end, "%d")
+          the_system$month <- format(the_system$end, "%m")
+          the_system$year <- ifelse(the_system$year == "2016", as.integer(format(Sys.Date(), "%Y")) - 1, the_system$year)
+          the_system$end <- as.Date(paste0(the_system$year, "-", the_system$month, "-", the_system$day))
+          the_system$year <- the_system$day <- the_system$month <- NULL
+
+
+        }
+
+
   } else { # system == "gw"
     the_system <- gw_system
+
+    if(mry == TRUE) { # FYI, this works only under two conditions that are satisfied here:
+      # 1) no state "died" in 2020, and 2) the last year in question is 2020.
+
+      the_system$year <- format(the_system$end, "%Y")
+      the_system$day <- format(the_system$end, "%d")
+      the_system$month <- format(the_system$end, "%m")
+      the_system$year <- ifelse(the_system$year == "2020", as.integer(format(Sys.Date(), "%Y")) - 1, the_system$year)
+      the_system$end <- as.Date(paste0(the_system$year, "-", the_system$month, "-", the_system$day))
+      the_system$year <- the_system$day <- the_system$month <- NULL
+
+
+    }
+
   }
 
-  ylist <- Map(seq,  as.numeric(format(the_system$start,'%Y')),
-                   as.numeric(format(the_system$end,'%Y')))
+  ylist <- Map(seq, as.numeric(format(the_system$start, "%Y")),
+                   as.numeric(format(the_system$end, "%Y")))
 
   rows <- rep(seq_len(nrow(the_system)), lengths(ylist))
 

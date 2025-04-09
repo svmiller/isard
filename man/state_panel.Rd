@@ -4,10 +4,14 @@
 \alias{state_panel}
 \title{Create a Panel of State-Years from the Correlates of War or Gleditsch-Ward system.}
 \usage{
-state_panel(system = "cow")
+state_panel(system = "cow", mry = TRUE)
 }
 \arguments{
 \item{system}{a state system (either "cow" or "gw")}
+
+\item{mry}{logical, defaults to TRUE. If TRUE, the panel created extends to
+the most recently concluded calendar year. If FALSE, the panel created ends
+at the year of last update. See details section for more.}
 }
 \value{
 \code{state_panel()} returns a data frame of state years corresponding with
@@ -19,6 +23,10 @@ from one of two major state systems in international relations scholarship.
 }
 \details{
 This function leans on \code{cw_system} and \code{gw_system} in this package.
+
+The Correlates of War system's last year is 2016. The Gleditsch-Ward system's
+last year is 2020. This information matters for the \code{mry} argument in the
+function.
 }
 \examples{
 
