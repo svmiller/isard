@@ -27,4 +27,9 @@
 #' str(cw_system)
 #' head(cw_system)
 #'
+#' @docType data
+#' @keywords dataset
+#' @name cw_system
+#' @usage data(cw_system)
+#'
 "cw_system"

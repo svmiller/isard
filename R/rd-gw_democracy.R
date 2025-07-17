@@ -77,4 +77,9 @@
 #' str(gw_democracy)
 #' head(gw_democracy)
 #'
+#' @docType data
+#' @keywords dataset
+#' @name gw_democracy
+#' @usage data(gw_democracy)
+#'
 "gw_democracy"

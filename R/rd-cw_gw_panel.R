@@ -39,5 +39,9 @@
 #' str(cw_gw_panel)
 #' head(cw_gw_panel)
 #'
+#' @docType data
+#' @keywords dataset
+#' @name cw_gw_panel
+#' @usage data(cw_gw_panel)
 #'
 "cw_gw_panel"

@@ -65,4 +65,9 @@
 #' str(gw_gdppop)
 #' head(gw_gdppop)
 #'
+#' @docType data
+#' @keywords dataset
+#' @name gw_gdppop
+#' @usage data(gw_gdppop)
+#'
 "gw_gdppop"

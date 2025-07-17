@@ -28,4 +28,9 @@
 #' str(gw_system)
 #' head(gw_system)
 #'
+#' @docType data
+#' @keywords dataset
+#' @name gw_system
+#' @usage data(gw_system)
+#'
 "gw_system"

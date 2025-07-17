@@ -80,4 +80,9 @@
 #' str(cw_gdppop)
 #' head(cw_gdppop)
 #'
+#' @docType data
+#' @keywords dataset
+#' @name cw_gdppop
+#' @usage data(cw_gdppop)
+#'
 "cw_gdppop"
