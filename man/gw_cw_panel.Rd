@@ -16,7 +16,7 @@ A data frame with the following 6 variables.
 }
 }
 \usage{
-gw_cw_panel
+data(gw_cw_panel)
 }
 \description{
 This a state-year panel in which the Gleditsch-Ward state system is the
@@ -48,4 +48,4 @@ str(gw_cw_panel)
 head(gw_cw_panel)
 
 }
-\keyword{datasets}
+\keyword{dataset}

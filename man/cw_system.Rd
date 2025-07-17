@@ -15,7 +15,7 @@ A data frame with the following 5 variables.
 }
 }
 \usage{
-cw_system
+data(cw_system)
 }
 \description{
 These are the independent states in the Correlates of War system.
@@ -35,4 +35,4 @@ Gleditsch, Kristian S. and Michael D. Ward. 1999. "A Revised List of
 Independent States since the Congress of Vienna."
 \emph{International Interactions} 25(4): 393–413.
 }
-\keyword{datasets}
+\keyword{dataset}

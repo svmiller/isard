@@ -16,7 +16,7 @@ A data frame with the following 6 variables.
 }
 }
 \usage{
-cw_gw_panel
+data(cw_gw_panel)
 }
 \description{
 This a state-year panel in which the Correlates of War state system is the
@@ -47,6 +47,5 @@ history of Serbia/Yugoslavia.
 str(cw_gw_panel)
 head(cw_gw_panel)
 
-
 }
-\keyword{datasets}
+\keyword{dataset}

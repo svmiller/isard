@@ -16,7 +16,7 @@ A data frame with the following 6 variables.
 }
 }
 \usage{
-cw_democracy
+data(cw_democracy)
 }
 \description{
 These are estimates of democracy for Correlates of War state system members.
@@ -41,7 +41,6 @@ democracy).
 
 str(cw_democracy)
 head(cw_democracy)
-
 
 }
 \references{
@@ -88,4 +87,4 @@ Project. 2025. \url{https://www.v-dem.net} and
 \url{https://github.com/vdeminstitute/vdemdata}
 }
 }
-\keyword{datasets}
+\keyword{dataset}

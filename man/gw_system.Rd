@@ -16,7 +16,7 @@ A data frame with the following 6 variables.
 }
 }
 \usage{
-gw_system
+data(gw_system)
 }
 \description{
 These are the independent states and microstates in the Gleditsch-Ward system.
@@ -36,4 +36,4 @@ Gleditsch, Kristian S. and Michael D. Ward. 1999. "A Revised List of
 Independent States since the Congress of Vienna."
 \emph{International Interactions} 25(4): 393–413.
 }
-\keyword{datasets}
+\keyword{dataset}

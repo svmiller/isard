@@ -16,7 +16,7 @@ A data frame with the following 6 variables.
 }
 }
 \usage{
-gw_democracy
+data(gw_democracy)
 }
 \description{
 These are estimates of democracy for Gleditsch-Ward state system members.
@@ -87,4 +87,4 @@ Project. 2025. \url{https://www.v-dem.net} and
 \url{https://github.com/vdeminstitute/vdemdata}
 }
 }
-\keyword{datasets}
+\keyword{dataset}

@@ -18,7 +18,7 @@ A data frame with the following 8 variables.
 }
 }
 \usage{
-cw_gdppop
+data(cw_gdppop)
 }
 \description{
 These are estimates of democracy for Correlates of War state system members.
@@ -88,4 +88,4 @@ Feenstra, Robert C., Robert Inklaar, and Marcel P. Timmer. 2015. "The Next
 Generation of the Penn World Table." \emph{American Economic Review} 105(10):
 3150--82.
 }
-\keyword{datasets}
+\keyword{dataset}
