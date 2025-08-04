@@ -67,10 +67,10 @@ use is the Correlates of War system.</p>
 <dt><code>ccode</code></dt>
 <dd><p>a Correlates of War state code</p></dd>
 
-<dt><code>gw_statename</code></dt>
+<dt><code>gw_name</code></dt>
 <dd><p>the state name as it appears in the Gleditsch-Ward data.</p></dd>
 
-<dt><code>cw_statename</code></dt>
+<dt><code>cw_name</code></dt>
 <dd><p>the state name as it appears in the Correlates of War data.</p></dd>
 
 
@@ -90,6 +90,14 @@ two systems are obvious, if often overstated. Merging one into the other,
 where possible, will be unproblematic in almost all cases. The biggest
 headaches concern German unification, Yemeni unification, and the overall
 history of Serbia/Yugoslavia.</p>
+<p>Gleditsch-Ward country names for Württemberg, São Tomé and Príncipe, and Côte
+d'Ivoire, have manual fixes communicating what the raw data wanted to
+communicate in ISO-8859-1 (Latin-1) encoding. Mayeul Kauffmann raised
+<a href="https://github.com/svmiller/isard/issues/1" class="external-link">this issue on Github</a>, and it's
+an easy fix, but it's worth reiterating that this fix is more cosmetic or
+aesthetic than it is practical or functional. You should not ever lean on a
+country name for serious data management, and the admitted gaudiness of this
+encoding issue is at most an eyesore in the original data.</p>
     </div>
 
     <div class="section level2">
@@ -97,15 +105,15 @@ history of Serbia/Yugoslavia.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">cw_gw_panel</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> tibble [17,720 × 6] (S3: tbl_df/tbl/data.frame)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ stateabb    : chr [1:17720] "USA" "USA" "USA" "USA" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ year        : num [1:17720] 1816 1817 1818 1819 1820 ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ gwcode      : num [1:17720] 2 2 2 2 2 2 2 2 2 2 ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ ccode       : num [1:17720] 2 2 2 2 2 2 2 2 2 2 ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ gw_statename: chr [1:17720] "United States of America" "United States of America" "United States of America" "United States of America" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ cw_statename: chr [1:17720] "United States of America" "United States of America" "United States of America" "United States of America" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ stateabb: chr [1:17720] "USA" "USA" "USA" "USA" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ year    : num [1:17720] 1816 1817 1818 1819 1820 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ gwcode  : num [1:17720] 2 2 2 2 2 2 2 2 2 2 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ ccode   : num [1:17720] 2 2 2 2 2 2 2 2 2 2 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ gw_name : chr [1:17720] "United States of America" "United States of America" "United States of America" "United States of America" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ cw_name : chr [1:17720] "United States of America" "United States of America" "United States of America" "United States of America" ...</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">cw_gw_panel</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   stateabb  year gwcode ccode gw_statename             cw_statename            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   stateabb  year gwcode ccode gw_name                  cw_name                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> USA       <span style="text-decoration: underline;">1</span>816      2     2 United States of America United States of America</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> USA       <span style="text-decoration: underline;">1</span>817      2     2 United States of America United States of America</span>
