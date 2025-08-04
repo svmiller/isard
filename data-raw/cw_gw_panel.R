@@ -9,7 +9,6 @@ cow_gw_years
 # The only thing I think I'd do differently is make sure the microstate data
 # are incorporated. That is one thing I didn't do. I should do it now.
 
-
 gw_microstates <- read_delim("http://ksgleditsch.com/data/microstates.txt")
 gw_microstates %>% data.frame
 
@@ -32,7 +31,14 @@ gw_microstates %>%
                      startdate = 4,
                      enddate = 5) %>% mutate(microstate = 0), .) -> gw_system
 
-gw_system
+# some manual fixes/insertions
+gw_system %>%
+  mutate(statename = case_when(
+    gwcode == 437 ~ "Côte d'Ivoire",
+    gwcode == 403 ~ "São Tomé and Príncipe",
+    gwcode == 271 ~ "Württemberg",
+    TRUE ~ statename
+  )) -> gw_system
 
 gw_system %>% # I remind myself that this is privileging the CoW stateabbs, but so be it...
   mutate(stateabb = case_when(
@@ -113,12 +119,16 @@ cw_gw_panel %>%
 cw_gw_panel %>% ungroup() -> cw_gw_panel
 
 # In case this doesn't register...
-cw_gw_panel %>%
-  mutate(gw_statename = case_when(
-    gwcode == 437 ~ "Cote D'Ivoire",
-    gwcode == 271 ~ "Wuerttemberg",
-    TRUE ~ gw_statename)) -> cw_gw_panel
+# cw_gw_panel %>%
+#   mutate(gw_statename = case_when(
+#     gwcode == 437 ~ "Cote D'Ivoire",
+#     gwcode == 271 ~ "Wuerttemberg",
+#     TRUE ~ gw_statename)) -> cw_gw_panel
 
+
+cw_gw_panel %>%
+  rename(gw_name = gw_statename,
+         cw_name = cw_statename) -> cw_gw_panel
 
 # gw_cw_panel %>%
 #   select(year, gwcode, ccode) -> gw_cw_panel

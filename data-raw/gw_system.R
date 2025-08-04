@@ -32,4 +32,17 @@ gw_system %>%
          start = 5,
          end = 6) -> gw_system
 
+# some manual fixes/insertions
+gw_system %>%
+  mutate(gw_name = case_when(
+    gwcode == 437 ~ "Côte d'Ivoire",
+    gwcode == 403 ~ "São Tomé and Príncipe",
+    gwcode == 271 ~ "Württemberg",
+    TRUE ~ gw_name
+  )) -> gw_system
+
+gw_system %>%
+  arrange(gwcode, start) %>%
+  filter(between(gwcode, 400, 599))
+
 save(gw_system, file="data/gw_system.rda")

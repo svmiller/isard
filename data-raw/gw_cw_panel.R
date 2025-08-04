@@ -32,7 +32,15 @@ gw_microstates %>%
                      startdate = 4,
                      enddate = 5) %>% mutate(microstate = 0), .) -> gw_system
 
-gw_system
+# some manual fixes/insertions
+gw_system %>%
+  mutate(statename = case_when(
+    gwcode == 437 ~ "Côte d'Ivoire",
+    gwcode == 403 ~ "São Tomé and Príncipe",
+    gwcode == 271 ~ "Württemberg",
+    TRUE ~ statename
+  )) -> gw_system
+
 
 gw_system %>% # I remind myself that this is privileging the CoW stateabbs, but so be it...
   mutate(stateabb = case_when(
@@ -102,11 +110,15 @@ gw_cw_panel %>%
     TRUE ~ ccode
   )) -> gw_cw_panel
 
-
 gw_cw_panel %>%
-  mutate(gw_statename = case_when(gwcode == 437 ~ "Cote D'Ivoire",
-                                  gwcode == 271 ~ "Wuerttemberg",
-                                  TRUE ~ gw_statename)) -> gw_cw_panel
+  rename(gw_name = gw_statename,
+         cw_name = cw_statename) -> gw_cw_panel
+
+
+# gw_cw_panel %>%
+#   mutate(gw_statename = case_when(gwcode == 437 ~ "Cote D'Ivoire",
+#                                   gwcode == 271 ~ "Wuerttemberg",
+#                                   TRUE ~ gw_statename)) -> gw_cw_panel
 
 
 # gw_cw_panel %>%

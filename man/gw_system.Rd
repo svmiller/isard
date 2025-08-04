@@ -24,6 +24,15 @@ These are the independent states and microstates in the Gleditsch-Ward system.
 \details{
 The end column is current as of Dec. 31, 2020. That date is reflected in the
 \code{end} column for states still active today.
+
+Country names for Württemberg, São Tomé and Príncipe, and Côte d'Ivoire, have
+manual fixes communicating what the raw data wanted to communicate in
+ISO-8859-1 (Latin-1) encoding. Mayeul Kauffmann raised
+\href{https://github.com/svmiller/isard/issues/1}{this issue on Github}, and it's
+an easy fix, but it's worth reiterating that this fix is more cosmetic or
+aesthetic than it is practical or functional. You should not ever lean on a
+country name for serious data management, and the admitted gaudiness of this
+encoding issue is at most an eyesore in the original data.
 }
 \examples{
 

@@ -11,8 +11,8 @@ A data frame with the following 6 variables.
 \item{\code{year}}{a numeric vector for the year}
 \item{\code{gwcode}}{a Gleditsch-Ward state code}
 \item{\code{ccode}}{a Correlates of War state code}
-\item{\code{gw_statename}}{the state name as it appears in the Gleditsch-Ward data.}
-\item{\code{cw_statename}}{the state name as it appears in the Correlates of War data.}
+\item{\code{gw_name}}{the state name as it appears in the Gleditsch-Ward data.}
+\item{\code{cw_name}}{the state name as it appears in the Correlates of War data.}
 }
 }
 \usage{
@@ -41,6 +41,15 @@ two systems are obvious, if often overstated. Merging one into the other,
 where possible, will be unproblematic in almost all cases. The biggest
 headaches concern German unification, Yemeni unification, and the overall
 history of Serbia/Yugoslavia.
+
+Gleditsch-Ward country names for Württemberg, São Tomé and Príncipe, and Côte
+d'Ivoire, have manual fixes communicating what the raw data wanted to
+communicate in ISO-8859-1 (Latin-1) encoding. Mayeul Kauffmann raised
+\href{https://github.com/svmiller/isard/issues/1}{this issue on Github}, and it's
+an easy fix, but it's worth reiterating that this fix is more cosmetic or
+aesthetic than it is practical or functional. You should not ever lean on a
+country name for serious data management, and the admitted gaudiness of this
+encoding issue is at most an eyesore in the original data.
 }
 \examples{
 

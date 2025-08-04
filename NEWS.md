@@ -1,8 +1,7 @@
-<!-- # isard 0.2.0
+# isard 0.2.0
 
-- Rename adjusted extended UDS to be `aeuds`. The fewer underscores, the better
-
--->
+- Fix character encoding issues in G-W system for country names. [See issue on Github](https://github.com/svmiller/isard/issues/1).
+- Related: change column names in panel data to better conform to names in the system data.
 
 # isard 0.1.0
 
