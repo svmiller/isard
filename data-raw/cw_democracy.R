@@ -1,8 +1,11 @@
+# Last updated: June 24, 2026
+
 library(tidyverse)
 #library(peacesciencer)
 library(isard)
-library(democracyData) # v. 0.5.1
-library(vdemdata)      # v. 15
+library(democracyData) # v. 0.7.1
+library(vdemdata)      # v. 16
+library(mirt)
 
 packageVersion("vdemdata")
 packageVersion("democracyData")
@@ -10,37 +13,76 @@ packageVersion("democracyData")
 # For creating basic CoW state years
 #create_stateyears() -> cw_democracy
 
-state_panel() %>%
+state_panel(system = 'cow') %>%
   as_tibble() -> cw_democracy
 
-cw_democracy
+
+# 1) Extended UDS data ----
+# I used to lean on extended_uds, but I'd rather just do this myself.
+
+# a) first, create a panel of CoW states...
+
+state_panel(system = 'cow') %>%
+  as_tibble() -> cw_panel
+
+# b) then, pull the measures that appear in extended_uds
 
 extended_uds %>%
-  select(cown, extended_country_name, year, z1, z1_adj) %>%
-  na.omit %>%
+  unnest(measures) %>%
+  distinct(measures) %>%
+  pull() -> measures
+
+# c) follow a lot of the guide that Xavier makes available, but with one caveat.
+#    the generate_democracy_scores_dataset does duplicate some rows in which the
+#    lexical_index measures appear as separate rows to themselves. group_by() %>%
+#    fill(.direction = 'downup') will take care of that.
+
+demscores <- generate_democracy_scores_dataset(output_format = "wide")
+
+demscores %>% select(cown, year, all_of(measures)) %>%
+  filter(!is.na(cown)) %>%
   rename(ccode = cown) %>%
-  filter(n() > 1, .by = c(ccode, year)) %>%
   arrange(ccode, year) %>%
-  data.frame
+  group_by(ccode, year) %>%
+  fill(measures, .direction = "downup") %>%
+  ungroup() -> demscores
 
-# Always, always Serbia/Yugoslavia...
+demscores %>%
+  slice(1, .by=c(ccode, year)) -> demscores
 
-extended_uds %>% filter(cown == 345 & year %in% c(1918:1920, 2006:2010))
+# d) prepare for {mirt}...
 
-# Okay, looks like this will concern just the years of 1918, 1919, 1920,
-# and then 2006-2010. If I understand Marquez' data correctly, we can lean on
-# the in_GW_system column for this. If it's TRUE, I'm going to interpret that
-# as part of the collision with the G-W system for this exact case.
+prepare_democracy_data(demscores) -> demscores
 
-extended_uds %>%
-  filter(!(cown == 345 & year %in% c(1918:1920, 2006:2010) & in_GW_system == TRUE)) %>%
-  select(cown, extended_country_name, year, z1, z1_adj) %>%
-  na.omit %>%
-  rename(ccode = cown) %>%
-  left_join(cw_democracy, .) %>%
-  select(-extended_country_name) -> cw_democracy
+# e) isolate to just active CoW states since 1816.
 
-Polity <-  readxl::read_excel("/home/steve/Dropbox/data/polity/p5v2018.xls")
+cw_panel %>%
+  left_join(., demscores) -> demscores
+
+# f) time for {mirt}
+cw_model <- mirt(demscores[, 4:ncol(demscores)],
+                 model = 1, itemtype = "graded",
+                 SE = TRUE, verbose = TRUE,
+                 technical = list(NCYCLES = 2000))
+
+
+# g) merge into cw_panel, to merge into cw_democracy
+
+democracy_scores(cw_model) %>%
+  select(z1, z1_adj) %>%
+  mutate(z1 = as.vector(z1),
+         z1_adj = as.vector(z1_adj)) %>%
+  bind_cols(cw_panel, .) -> cw_panel
+
+cw_democracy %>%
+  left_join(., cw_panel %>% select(-cw_name)) -> cw_democracy
+
+
+
+
+# 2) Polity...
+
+Polity <-  readxl::read_excel("~/Koofr/data/polity/p5v2018.xls")
 
 Polity %>%
   select(ccode, country, year, polity2) %>%
