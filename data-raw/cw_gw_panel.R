@@ -1,6 +1,9 @@
 library(tidyverse)
 library(peacesciencer)
 
+# Get last day of previous year...
+ldpy <- as.Date(paste0(year(Sys.Date())-1,"-12-31"))
+
 cow_gw_years
 
 # I remember taking care of this a few years ago, here:
@@ -9,10 +12,12 @@ cow_gw_years
 # The only thing I think I'd do differently is make sure the microstate data
 # are incorporated. That is one thing I didn't do. I should do it now.
 
-gw_microstates <- read_delim("http://ksgleditsch.com/data/microstates.txt")
+# I had previously read this from his website. I'm erring on the side of
+# convenience and keeping local copies in which I can scrub the special characters.
+gw_microstates <- read_delim("~/Koofr/data/gleditsch/system/microstates-2020.txt")
 gw_microstates %>% data.frame
 
-gw_states2 <- read_delim("http://ksgleditsch.com/data/ksgmdw.txt")
+gw_states2 <- read_delim("~/Koofr/data/gleditsch/system/ksgmdw-2020.txt")
 # ^ I am pretty sure that this is a simple update from what I last recorded
 # through 2020, but might as well be safe...
 
@@ -51,7 +56,7 @@ gw_system %>% # I remind myself that this is privileging the CoW stateabbs, but 
     TRUE ~ stateabb
   )) %>%
   rename(gw_statename = statename) %>%
-  mutate(enddate = if_else(enddate == as_date("2020-12-31"), as_date("2024-12-31"), enddate)) %>%
+  mutate(enddate = if_else(enddate == as_date("2020-12-31"), ldpy, enddate)) %>%
   #mutate(enddate = if_else(enddate == as_date("2017-12-31"), as_date("2020-12-31"), enddate)) %>%
   rowwise() %>%
   mutate(day = list(seq(startdate, enddate, by = '1 day'))) %>%
@@ -65,7 +70,7 @@ cow_states %>%
          enddate = ymd(paste0(endyear,"/",endmonth,"/",endday))) %>%
   select(stateabb:statenme, stdate, enddate) %>%
   rename(cw_statename = statenme) %>%
-  mutate(enddate = if_else(enddate == as_date("2016-12-31"), as_date("2024-12-31"), enddate)) %>%
+  mutate(enddate = if_else(enddate == as_date("2016-12-31"), ldpy, enddate)) %>%
   rowwise() %>%
   mutate(day = list(seq(stdate, enddate, by = '1 day'))) %>%
   unnest(day) %>%
