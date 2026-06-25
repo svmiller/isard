@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">isard</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.9</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,8 +66,8 @@
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Extended Unified Democracy Scores (UDS) estimates come from Marquez'
-<span class="pkg">democracyData</span> package. That is version 0.5.1. The Varieties of Democracy
-data are version 15, but also come by way of their R package.</p>
+<span class="pkg">democracyData</span> package. That is version 0.7.1. The Varieties of Democracy
+data are version 16, but also come by way of their R package.</p>
 <p>The "adjusted" versions of the UDS estimate means that 0 represents the average
 cut-point for the dichotomous indicators. If it were my call to make, I think
 these "adjusted" estimates generally have greater face validity, certainly
@@ -87,7 +87,7 @@ following, contingent on which democracy estimate you are using.</p><div class="
 
 
 <p>Marquez, Xavier. 2016. "A Quick Method for Extending the Unified Democracy
-Scores" doi: <a href="https://doi.org/10.2139/ssrn.2753830" class="external-link">10.2139/ssrn.2753830</a></p>
+Scores" <a href="https://doi.org/10.2139/ssrn.2753830" class="external-link">doi:10.2139/ssrn.2753830</a></p>
 <p>Marquez, Xavier. 2020. "democracyData: A package for accessing and
 manipulating existing measures of democracy."
 <a href="https://github.com/xmarquez/democracyData" class="external-link">https://github.com/xmarquez/democracyData</a>.</p>
@@ -118,7 +118,7 @@ Johannes von Römer, Brigitte Seim, Rachel Sigman, Svend-Erik Skaaning,
 Jeffrey Staton, Aksel Sundström, Marcus Tannenberg, Eitan Tzelgov,
 Yi-ting Wang, Felix Wiebrecht, Tore Wig, Steven Wilson and Daniel Ziblatt.
 2025. "V-Dem Country-Year Dataset v15" Varieties of Democracy (V-Dem) Project.
-doi: <a href="https://doi.org/10.23696/vdemds25" class="external-link">10.23696/vdemds25</a>
+<a href="https://doi.org/10.23696/vdemds25" class="external-link">doi:10.23696/vdemds25</a>
 .</p>
 <p>Maerz, Seraphine, Amanda Edgell, Sebastian Hellmeier, Nina Ilchenko, Linnea Fox.
 'Vdemdata - an R package to load, explore and work with the most recent V-Dem
@@ -133,23 +133,23 @@ Project. 2025. <a href="https://www.v-dem.net" class="external-link">https://www
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">gw_democracy</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> tibble [20,652 × 6] (S3: tbl_df/tbl/data.frame)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ gwcode       : num [1:20652] 2 2 2 2 2 2 2 2 2 2 ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ year         : num [1:20652] 1816 1817 1818 1819 1820 ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ euds         : num [1:20652] 0.803 0.803 0.803 0.803 0.803 ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ aeuds        : num [1:20652] -0.00435 -0.00435 -0.00435 -0.00435 -0.00435 ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ polity2      : num [1:20652] 6 6 6 6 6 6 6 6 6 7 ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ v2x_polyarchy: num [1:20652] 0.359 0.357 0.359 0.359 0.354 0.349 0.349 0.348 0.348 0.348 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tibble [20,849 × 6] (S3: tbl_df/tbl/data.frame)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ gwcode       : num [1:20849] 2 2 2 2 2 2 2 2 2 2 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ year         : num [1:20849] 1816 1817 1818 1819 1820 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ euds         : num [1:20849] 0.396 0.396 0.396 0.396 0.396 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ aeuds        : num [1:20849] -0.000898 -0.000898 -0.000898 -0.000898 -0.000898 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ polity2      : num [1:20849] 6 6 6 6 6 6 6 6 6 7 ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ v2x_polyarchy: num [1:20849] 0.355 0.355 0.357 0.358 0.352 0.346 0.345 0.345 0.345 0.346 ...</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">gw_democracy</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   gwcode  year  euds    aeuds polity2 v2x_polyarchy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>      2  <span style="text-decoration: underline;">1</span>816 0.803 -<span style="color: #BB0000;">0.004</span><span style="color: #BB0000; text-decoration: underline;">35</span>       6         0.359</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>      2  <span style="text-decoration: underline;">1</span>817 0.803 -<span style="color: #BB0000;">0.004</span><span style="color: #BB0000; text-decoration: underline;">35</span>       6         0.357</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>      2  <span style="text-decoration: underline;">1</span>818 0.803 -<span style="color: #BB0000;">0.004</span><span style="color: #BB0000; text-decoration: underline;">35</span>       6         0.359</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>      2  <span style="text-decoration: underline;">1</span>819 0.803 -<span style="color: #BB0000;">0.004</span><span style="color: #BB0000; text-decoration: underline;">35</span>       6         0.359</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>      2  <span style="text-decoration: underline;">1</span>820 0.803 -<span style="color: #BB0000;">0.004</span><span style="color: #BB0000; text-decoration: underline;">35</span>       6         0.354</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>      2  <span style="text-decoration: underline;">1</span>821 0.803 -<span style="color: #BB0000;">0.004</span><span style="color: #BB0000; text-decoration: underline;">35</span>       6         0.349</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   gwcode  year  euds     aeuds polity2 v2x_polyarchy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>      2  <span style="text-decoration: underline;">1</span>816 0.396 -<span style="color: #BB0000;">0.000</span><span style="color: #BB0000; text-decoration: underline;">898</span>       6         0.355</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>      2  <span style="text-decoration: underline;">1</span>817 0.396 -<span style="color: #BB0000;">0.000</span><span style="color: #BB0000; text-decoration: underline;">898</span>       6         0.355</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>      2  <span style="text-decoration: underline;">1</span>818 0.396 -<span style="color: #BB0000;">0.000</span><span style="color: #BB0000; text-decoration: underline;">898</span>       6         0.357</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span>      2  <span style="text-decoration: underline;">1</span>819 0.396 -<span style="color: #BB0000;">0.000</span><span style="color: #BB0000; text-decoration: underline;">898</span>       6         0.358</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span>      2  <span style="text-decoration: underline;">1</span>820 0.396 -<span style="color: #BB0000;">0.000</span><span style="color: #BB0000; text-decoration: underline;">898</span>       6         0.352</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span>      2  <span style="text-decoration: underline;">1</span>821 0.396 -<span style="color: #BB0000;">0.000</span><span style="color: #BB0000; text-decoration: underline;">898</span>       6         0.346</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -162,7 +162,7 @@ Project. 2025. <a href="https://www.v-dem.net" class="external-link">https://www
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>

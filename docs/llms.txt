@@ -1,0 +1,56 @@
+# Overflow Data for Quantitative Peace Science Research
+
+[![](https://www.r-pkg.org/badges/version/isard?color=2fa4e7)](https://cran.r-project.org/package=isard)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/isard?color=2fa4e7)](https://cran.r-project.org/package=isard)
+[![](http://cranlogs.r-pkg.org/badges/last-month/isard?color=2fa4e7)](https://cran.r-project.org/package=isard)
+[![](http://cranlogs.r-pkg.org/badges/last-week/isard?color=2fa4e7)](https://cran.r-project.org/package=isard)
+
+![My isard hexlogo](http://svmiller.com/images/isard-hexlogo.png)
+
+`{isard}` contains some data for use in quantitative peace science
+applications. CRAN has understandable, if strict, requirements about
+package size. Data, more than functions, push package sizes to their
+limits. `{isard}` will have some overflow data that could use for a
+variety of quantitative peace science applications in the R programming
+language. The particular data sets included here will focus mostly on
+those lengthy in size (i.e. the state-year data sets) and those that may
+require some periodic maintenance and updates. Estimates of democracy
+and economic size/wealth, in particular, are data that are both large in
+size and improve/extend over time. Those data, and more, are included
+here.
+
+# Installation
+
+Ideally, this would be on CRAN. Until then, or if you want development
+versions of this package, you can also install it from Github as
+follows.
+
+``` r
+
+devtools::install_github("svmiller/isard")
+```
+
+# Package index
+
+## All functions
+
+- [`cw_democracy`](http://svmiller.com/reference/cw_democracy.md) :
+  Democracy (Correlates of War System)
+- [`cw_gdppop`](http://svmiller.com/reference/cw_gdppop.md) : GDP,
+  Population, and GDP per Capita (Correlates of War System)
+- [`cw_gw_panel`](http://svmiller.com/reference/cw_gw_panel.md) :
+  State-Year Panel for Merging G-W Data (Correlates of War)
+- [`cw_system`](http://svmiller.com/reference/cw_system.md) : States
+  (Correlates of War System)
+- [`gw_cw_panel`](http://svmiller.com/reference/gw_cw_panel.md) :
+  State-Year Panel for Merging Correlates of War Data (Gleditsch-Ward)
+- [`gw_democracy`](http://svmiller.com/reference/gw_democracy.md) :
+  Democracy (Gleditsch-Ward System)
+- [`gw_gdppop`](http://svmiller.com/reference/gw_gdppop.md) : GDP,
+  Population, and GDP per Capita (Gleditsch-Ward System)
+- [`gw_system`](http://svmiller.com/reference/gw_system.md) : States
+  (Gleditsch-Ward System)
+- [`state_panel()`](http://svmiller.com/reference/state_panel.md) :
+  Create a Panel of State-Years from the Correlates of War or
+  Gleditsch-Ward system.
+
