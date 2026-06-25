@@ -23,8 +23,8 @@ These are estimates of democracy for Correlates of War state system members.
 }
 \details{
 Extended Unified Democracy Scores (UDS) estimates come from Marquez'
-\pkg{democracyData} package. That is version 0.5.1. The Varieties of Democracy
-data are version 15, but also come by way of their R package.
+\pkg{democracyData} package. That is version 0.7.1. The Varieties of Democracy
+data are version 16, but also come by way of their R package.
 
 The "adjusted" versions of the UDS estimate means that 0 represents the average
 cut-point for the dichotomous indicators. If it were my call to make, I think
