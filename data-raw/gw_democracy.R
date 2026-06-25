@@ -1,124 +1,88 @@
+# Last updated: June 25, 2026
+
 library(tidyverse)
-library(peacesciencer)
-library(democracyData) # v. 0.5.1
-library(vdemdata)      # v. 15
+#library(peacesciencer)
+library(isard)
+library(democracyData) # v. 0.7.1
+library(vdemdata)      # v. 16
+library(mirt)
 
 packageVersion("vdemdata")
 packageVersion("democracyData")
 
-# For creating basic CoW state years
-# create_stateyears() -> cw_democracy
 
 
-# Really tired of repeating myself by this point. Gotta put this one in
-# {peacesciencer}
-gw_microstates <- read_delim("http://ksgleditsch.com/data/microstates.txt")
-gw_microstates %>% data.frame
-
-gw_states2 <- read_delim("http://ksgleditsch.com/data/ksgmdw.txt")
-# ^ I am pretty sure that this is a simple update from what I last recorded
-# through 2020, but might as well be safe...
+state_panel(system = 'gw') %>%
+  as_tibble() -> gw_democracy
 
 
-gw_microstates %>%
-  rename(gwcode = 1,
-         stateabb = 2,
-         statename = 3,
-         startdate = 4,
-         enddate = 5) %>%
-  mutate(microstate = 1) %>%
-  bind_rows(gw_states2 %>%
-              rename(gwcode = 1,
-                     stateabb = 2,
-                     statename = 3,
-                     startdate = 4,
-                     enddate = 5) %>% mutate(microstate = 0), .) -> gw_system
+# 1) Extended UDS data ----
+# I used to lean on extended_uds, but I'd rather just do this myself.
 
-gw_system %>%
-  mutate(styear = year(startdate),
-         endyear = year(enddate)) %>%
-  # No states died from 2020 to 2024, so this is safe (for now...)
-  # Please don't jinx yourself, Steve...
-  mutate(endyear = ifelse(endyear == 2020, 2024, endyear)) %>%
-  rowwise() %>%
-  mutate(year = list(seq(styear, endyear, by=1))) %>%
-  select(gwcode, stateabb, statename, year) %>%
-  unnest(year) -> gw_democracy
+# a) first, create a panel of G-W states...
 
+state_panel(system = 'gw') %>%
+  as_tibble() -> gw_panel
 
-
-gw_democracy
-# cool, cool, cool...
-# Okay, let's get this show on the road...
+# b) then, pull the measures that appear in extended_uds
 
 extended_uds %>%
-  select(GWn, extended_country_name,
-         in_GW_system, year, z1, z1_adj) %>%
-  na.omit %>%
+  unnest(measures) %>%
+  distinct(measures) %>%
+  pull() -> measures
+
+# c) follow a lot of the guide that Xavier makes available, but with one caveat.
+#    the generate_democracy_scores_dataset does duplicate some rows in which the
+#    lexical_index measures appear as separate rows to themselves. group_by() %>%
+#    fill(.direction = 'downup') will take care of that.
+
+demscores <- generate_democracy_scores_dataset(output_format = "wide")
+
+demscores %>% select(GWn, year, all_of(measures)) %>%
+  filter(!is.na(GWn)) %>%
   rename(gwcode = GWn) %>%
-  filter(n() > 1, .by = c(gwcode, year)) %>%
   arrange(gwcode, year) %>%
-  data.frame
+  # filter(n() > 1, .by = c(gwcode, year)) %>%
+  # group_split(gwcode) %>% .[[3]]
+  group_by(gwcode, year) %>%
+  fill(measures, .direction = "downup") %>%
+  ungroup() -> demscores
 
-# Boo... *booing intensifies*...
-# Okay, let's see what's going on here...
+demscores %>%
+  slice(1, .by=c(gwcode, year)) -> demscores
 
-extended_uds %>%
-  filter(GWn %in% c(255, 260) & year %in% c(1945))
+# d) prepare for {mirt}...
 
-gw_system %>% filter(gwcode %in% c(255, 260))
+prepare_democracy_data(demscores) -> demscores
 
-# This is an interesting case. G-W have Germany (Prussia) until 1945, as gwcode
-# 255. The democracy data have two gwcodes for 260 in that year, but none for 255.
-# 260 won't be observed as a code until 1949, though. For what it's worth,
-# I side-stepped this completely in the `gwcode_democracy` data in {peacesciencer}.
-# I just have nothing for this observation in this year. I feel like I have to
-# honor that here just by how straightforward the data are in the country name.
+# e) isolate to just active G-W states since 1816.
 
-extended_uds %>%
-  filter(GWn %in% c(255, 260) & year %in% c(1988:1992)) %>%
-  arrange(year)
+gw_panel %>%
+  left_join(., demscores) -> demscores
 
-# This one looks like a bit more interesting. The implications are not terribly
-# problematic, but it does suggest that 1990 observes a one-off democracy penalty
-# for West Germany in eating East Germany, at least by this coding. I don't know
-# how I feel about that interpretation, though. If the system is G-W and
-# `in_GW_system` is TRUE for both, I might have more flexibility to pick one with
-# more face validity.
 
-extended_uds %>%
-  filter(GWn %in% c(678:680) & year %in% c(1988:1992)) %>%
-  arrange(year)
+# f) time for {mirt}
+gw_model <- mirt(demscores[, 4:ncol(demscores)],
+                 model = 1, itemtype = "graded",
+                 SE = TRUE, verbose = TRUE,
+                 technical = list(NCYCLES = 2000))
 
-# I have less a stake or subject domain knowledge of this one and I will probably
-# just slice the first one that I see.
 
-# Okay, let's do it this way...
+# g) merge into gw_panel, to merge into gw_democracy
 
-extended_uds %>%
-  select(GWn, extended_country_name,
-         in_GW_system, year, z1, z1_adj) %>%
-  na.omit %>%
-  rename(gwcode = GWn) %>%
-  filter(n() > 1, .by = c(gwcode, year)) %>%
-  arrange(gwcode, year) %>%
-  data.frame %>%
-  # NOTE TO FUTURE STEVE: Xavier is working on an update of these and you will
-  # 100% want to inspect/change this when he does. It works for now, for what it
-  # is ultimately doing.
-  mutate(omit = c(1, 1, 0, 1, 0, 1)) %>%
-  left_join(extended_uds %>%   select(GWn, extended_country_name,
-                                      in_GW_system, year, z1, z1_adj) %>%
-              na.omit %>%
-              rename(gwcode = GWn), .) %>%
-  mutate(omit = ifelse(is.na(omit), 0, omit)) %>%
-  filter(omit == 0) %>%
-  select(gwcode, year, z1, z1_adj) %>%
-  left_join(gw_democracy, .) -> gw_democracy
+democracy_scores(gw_model) %>%
+  select(z1, z1_adj) %>%
+  mutate(z1 = as.vector(z1),
+         z1_adj = as.vector(z1_adj)) %>%
+  bind_cols(gw_panel, .) -> gw_panel
+
+gw_democracy %>%
+  left_join(., gw_panel %>% select(-gw_name)) -> gw_democracy
+
 
 # Polity now....
 
-Polity <-  readxl::read_excel("/home/steve/Dropbox/data/polity/p5v2018.xls")
+Polity <-  readxl::read_excel("~/Koofr/data/polity/p5v2018.xls")
 
 Polity %>% # This is going to bleed because it's demarcated in CoW...
   select(ccode, country, year, polity2) %>%
